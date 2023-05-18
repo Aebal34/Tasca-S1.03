@@ -5,6 +5,7 @@ public class App {
 
 	public static void main(String[] args) {
 
+		//We use LinkedList for lighter use of resources when adding or removing elements from it
 		LinkedList<Integer> list = new LinkedList<Integer>();
 		
 		list.add(1);
