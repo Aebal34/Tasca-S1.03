@@ -55,7 +55,7 @@ public class App {
 		}
 		
 		//We convert ArrayList to HashSet
-		HashSet<Month> monthsNoRepeat= new HashSet(months);
+		HashSet<Month> monthsNoRepeat= new HashSet<Month>(months);
 		
 		//Space for clarity in console
 		System.out.println();
