@@ -69,7 +69,7 @@ public class App {
 		System.out.println();
 		
 		//Create iterator
-		Iterator<Month> it = monthsNoRepeat.iterator();
+		Iterator<Month> it = monthsNoRepeat.iterator(); //with collections' method iterator, that generates the object iterator
 		
 		//We avoid Exception when collection is iterated
 		while(it.hasNext()) {
