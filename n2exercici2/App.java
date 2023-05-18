@@ -1,4 +1,4 @@
-package n2exercici1;
+package n2exercici2;
 
 import java.util.*;
 
@@ -13,7 +13,7 @@ public class App {
 		//Samples
 		Restaurant konigGirona = new Restaurant("Konig", 5);
 		Restaurant tagliatella = new Restaurant("Tagliatella", 7);
-		Restaurant ilcapo = new Restaurant("Il Capo", 9);
+		Restaurant ilcapo = new Restaurant("Il Capo", 10);
 		Restaurant eltoril = new Restaurant("El Toril", 10);
 		Restaurant konigBarcelona = new Restaurant("Konig", 6);
 		Restaurant tagliatella2 = new Restaurant("Tagliatella", 7);
@@ -28,6 +28,28 @@ public class App {
 		
 		//Print for reference
 		for(Restaurant restaurant : restaurants) {
+			System.out.println(restaurant);
+		}
+		
+		//Space for clarity
+		System.out.println();
+
+		
+		Set<Restaurant> orderedRestaurantsScore = new TreeSet<Restaurant>(restaurants);
+		
+		for(Restaurant restaurant : orderedRestaurantsScore) {
+			System.out.println(restaurant);
+		}
+		
+		//Space for clarity
+		System.out.println();
+		
+		Restaurant comparator = new Restaurant();
+		
+		Set<Restaurant> orderedRestaurantsAlphabetical = new TreeSet<Restaurant>(comparator);
+		orderedRestaurantsAlphabetical.addAll(restaurants);
+		
+		for(Restaurant restaurant : orderedRestaurantsAlphabetical) {
 			System.out.println(restaurant);
 		}
 	}
