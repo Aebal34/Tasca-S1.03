@@ -8,12 +8,18 @@ public class MenuManager {
 	//ATTRIBUTES
 	private List<Person> persons;
 	private String path;
+	private PersonComparator nameCompare;
+	private PersonComparator surnameCompare;
+	private PersonComparator DNICompare;
 	
 	//CONSTRUCTOR
 	
 	public MenuManager() {
 		persons = new ArrayList<Person>();
 		path = System.getProperty("user.dir")+"\\src\\n3exercici1\\table.csv";
+		nameCompare = new PersonComparator("name");
+		surnameCompare = new PersonComparator("surname");
+		DNICompare = new PersonComparator("DNI");
 	}
 	
 	//DATA CONTROL
@@ -26,29 +32,14 @@ public class MenuManager {
 		writeFileCSV(p1);
 	}
 	
-	public void sortNameDescending() {
+	public void sortAttributeDescending(PersonComparator comparator) {
 		//We call the static method sort from Collections to sort the list with the given comparator parameters 
-		Collections.sort(persons, Comparator.comparing(Person::getName));
+		persons.sort(comparator);
 	}
 	
-	public void sortNameAscending() {
-		Collections.sort(persons, Comparator.comparing(Person::getName).reversed());
-	}
-	
-	public void sortSurnameDescending() {
-		Collections.sort(persons, Comparator.comparing(Person::getSurname));
-	}
-	
-	public void sortSurnameAscending() {
-		Collections.sort(persons, Comparator.comparing(Person::getSurname).reversed());
-	}
-	
-	public void sortDNIDescending() {
-		Collections.sort(persons, Comparator.comparing(Person::getDNI));
-	}
-	
-	public void sortDNIAscending() {
-		Collections.sort(persons, Comparator.comparing(Person::getDNI).reversed());
+	public void sortAttributeAscending(PersonComparator comparator) {
+		persons.sort(comparator);
+		Collections.reverse(persons);
 	}
 	
 	//PRINT
@@ -79,27 +70,27 @@ public class MenuManager {
 					insertPerson();
 					break;
 				case 2:
-					sortNameDescending();
+					sortAttributeDescending(nameCompare);
 					printList();
 					break;
 				case 3:
-					sortNameAscending();
+					sortAttributeDescending(nameCompare);
 					printList();
 					break;
 				case 4:
-					sortSurnameDescending();
+					sortAttributeDescending(surnameCompare);
 					printList();
 					break;
 				case 5:
-					sortSurnameAscending();
+					sortAttributeDescending(surnameCompare);
 					printList();
 					break;
 				case 6:
-					sortDNIDescending();
+					sortAttributeDescending(DNICompare);
 					printList();
 					break;
 				case 7:
-					sortDNIAscending();
+					sortAttributeDescending(DNICompare);
 					printList();
 					break;
 				case 0:
