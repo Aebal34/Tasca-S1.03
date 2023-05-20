@@ -27,47 +27,37 @@ public class MenuManager {
 	}
 	
 	public void sortNameDescending() {
+		//We call the static method sort from Collections to sort the list with the given comparator parameters 
 		Collections.sort(persons, Comparator.comparing(Person::getName));
-		for(Person person : persons) {
-			System.out.println(person);
-		}
 	}
 	
 	public void sortNameAscending() {
 		Collections.sort(persons, Comparator.comparing(Person::getName).reversed());
-		for(Person person : persons) {
-			System.out.println(person);
-		}
 	}
 	
 	public void sortSurnameDescending() {
 		Collections.sort(persons, Comparator.comparing(Person::getSurname));
-		for(Person person : persons) {
-			System.out.println(person);
-		}
 	}
 	
 	public void sortSurnameAscending() {
 		Collections.sort(persons, Comparator.comparing(Person::getSurname).reversed());
-		for(Person person : persons) {
-			System.out.println(person);
-		}
 	}
 	
 	public void sortDNIDescending() {
 		Collections.sort(persons, Comparator.comparing(Person::getDNI));
-		for(Person person : persons) {
-			System.out.println(person);
-		}
 	}
 	
 	public void sortDNIAscending() {
 		Collections.sort(persons, Comparator.comparing(Person::getDNI).reversed());
+	}
+	
+	//PRINT
+	public void printList() {
 		for(Person person : persons) {
 			System.out.println(person);
 		}
 	}
-	
+
 	//MAIN MENU
 	public byte mainMenu() {
 		return Input.readByte("1. Insert person."+"\n"
@@ -90,21 +80,27 @@ public class MenuManager {
 					break;
 				case 2:
 					sortNameDescending();
+					printList();
 					break;
 				case 3:
 					sortNameAscending();
+					printList();
 					break;
 				case 4:
 					sortSurnameDescending();
+					printList();
 					break;
 				case 5:
 					sortSurnameAscending();
+					printList();
 					break;
 				case 6:
 					sortDNIDescending();
+					printList();
 					break;
 				case 7:
 					sortDNIAscending();
+					printList();
 					break;
 				case 0:
 					System.out.println("Hasta pronto.");
