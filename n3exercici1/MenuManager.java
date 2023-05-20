@@ -116,7 +116,7 @@ public class MenuManager {
 			
 			writer.close();
 		}catch(IOException e) {
-			System.out.println("El archivo no se ha encontrado.");
+			System.out.println("No se ha encontrado el directorio de destino.");
 		}
 		
 	}
