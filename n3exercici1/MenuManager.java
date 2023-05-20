@@ -3,7 +3,7 @@ package n3exercici1;
 import java.io.*;
 import java.util.*;
 
-public class menuManager {
+public class MenuManager {
 
 	//ATTRIBUTES
 	private List<Person> persons;
@@ -11,7 +11,7 @@ public class menuManager {
 	
 	//CONSTRUCTOR
 	
-	public menuManager() {
+	public MenuManager() {
 		persons = new ArrayList<Person>();
 		path = System.getProperty("user.dir")+"\\src\\n3exercici1\\table.csv";
 	}
@@ -20,6 +20,20 @@ public class menuManager {
 	
 	public void insertPerson(Person person) {
 		persons.add(person);
+	}
+	
+	public void sortNameAscending() {
+		Collections.sort(persons, Comparator.comparing(Person::getName).reversed());
+		for(Person person : persons) {
+			System.out.println(person);
+		}
+	}
+	
+	public void sortNameDescending() {
+		Collections.sort(persons, Comparator.comparing(Person::getName));
+		for(Person person : persons) {
+			System.out.println(person);
+		}
 	}
 	
 	//MAIN MENU
@@ -52,19 +66,19 @@ public class menuManager {
 		
 	}
 	
-	public void readFileCSV(File file) {
+	public void readFileCSV() {
 		
 		try {
             BufferedReader reader = new BufferedReader(new FileReader(path));
+            String line = reader.readLine();
             
-            while (reader.readLine() !=null) {
-                String line = reader.readLine();
-                
+            while (line !=null) {            	
+            	
                 String row[] = line.split(";");
-
-                Person p1 = new Person(row[0], row[1], row[2]);
                 
-                reader.readLine();
+                persons.add(new Person(row[0], row[1], row[2]));
+                
+                line = reader.readLine();
             }
             reader.close();
         } catch (IOException e) {
