@@ -7,10 +7,6 @@ public class App {
     	
     	app.readFileCSV();
     	
-    	app.sortNameAscending();
-    	
-    	System.out.println();
-    	
-    	app.sortNameDescending();
+    	app.start();
     }
 }

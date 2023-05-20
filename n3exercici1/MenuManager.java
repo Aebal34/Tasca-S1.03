@@ -18,8 +18,19 @@ public class MenuManager {
 	
 	//DATA CONTROL
 	
-	public void insertPerson(Person person) {
-		persons.add(person);
+	public void insertPerson() {
+		Person p1 = new Person(Input.readString("Escriba el nombre de la persona a introducir:"),
+								Input.readString("Escriba el apellido de la persona a introducir:"),
+								 Input.readString("Escriba el DNI de la persona a introducir:"));
+		
+		writeFileCSV(p1);
+	}
+	
+	public void sortNameDescending() {
+		Collections.sort(persons, Comparator.comparing(Person::getName));
+		for(Person person : persons) {
+			System.out.println(person);
+		}
 	}
 	
 	public void sortNameAscending() {
@@ -29,8 +40,29 @@ public class MenuManager {
 		}
 	}
 	
-	public void sortNameDescending() {
-		Collections.sort(persons, Comparator.comparing(Person::getName));
+	public void sortSurnameDescending() {
+		Collections.sort(persons, Comparator.comparing(Person::getSurname));
+		for(Person person : persons) {
+			System.out.println(person);
+		}
+	}
+	
+	public void sortSurnameAscending() {
+		Collections.sort(persons, Comparator.comparing(Person::getSurname).reversed());
+		for(Person person : persons) {
+			System.out.println(person);
+		}
+	}
+	
+	public void sortDNIDescending() {
+		Collections.sort(persons, Comparator.comparing(Person::getDNI));
+		for(Person person : persons) {
+			System.out.println(person);
+		}
+	}
+	
+	public void sortDNIAscending() {
+		Collections.sort(persons, Comparator.comparing(Person::getDNI).reversed());
 		for(Person person : persons) {
 			System.out.println(person);
 		}
@@ -43,11 +75,47 @@ public class MenuManager {
 							 +"3. Show persons by name [Z-A]."+"\n"
 							 +"4. Show persons by surname [A-Z]."+"\n"
 							 +"5. Show persons by surname [Z-A]."+"\n"
-							 +"5. Show persons by DNI [1-9]."+"\n"
-							 +"5. Show persons by DNI [9-1]."+"\n"
+							 +"6. Show persons by DNI [1-9]."+"\n"
+							 +"7. Show persons by DNI [9-1]."+"\n"
 							 +"0. Exit");
 	}
 	
+	public void start() {
+		
+		boolean flag = false;
+		while(!flag){
+			switch(mainMenu()) {
+				case 1:
+					insertPerson();
+					break;
+				case 2:
+					sortNameDescending();
+					break;
+				case 3:
+					sortNameAscending();
+					break;
+				case 4:
+					sortSurnameDescending();
+					break;
+				case 5:
+					sortSurnameAscending();
+					break;
+				case 6:
+					sortDNIDescending();
+					break;
+				case 7:
+					sortDNIAscending();
+					break;
+				case 0:
+					System.out.println("Hasta pronto.");
+					flag = true;
+					break;
+				default:
+					System.out.println("Introduzca una opción válida.");
+					break;
+			}
+		}
+	}
 	
 	//FILES MANAGEMENT
 	
