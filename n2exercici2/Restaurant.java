@@ -2,16 +2,13 @@ package n2exercici2;
 
 import java.util.*;
 
-public class Restaurant implements Comparable<Restaurant>, Comparator<Restaurant>{
+public class Restaurant implements Comparable<Restaurant>{
 
 	//ATTRIBUTES
 	private String name;
 	private int score;
 	
-	//CONSTRUCTORS
-	public Restaurant() {
-		
-	}
+	//CONSTRUCTOR
 	public Restaurant (String name, int score) {
 		this.name = name;
 		this.score = score;
@@ -53,14 +50,5 @@ public class Restaurant implements Comparable<Restaurant>, Comparator<Restaurant
 	public int compareTo(Restaurant o) {
 		// TODO Auto-generated method stub
 		return this.score - o.getScore();
-	}
-
-	@Override
-	public int compare(Restaurant o1, Restaurant o2) {
-		// TODO Auto-generated method stub
-		String name1 = o1.getName();
-		String name2 = o2.getName();
-		
-		return name1.compareTo(name2);
 	}
 }
