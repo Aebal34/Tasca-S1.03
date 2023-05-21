@@ -13,7 +13,7 @@ public class MapFileManager {
 	static void writeMap(String player, byte score, String path) {
 		
 		try {
-			BufferedWriter writer = new BufferedWriter(new FileWriter(path));
+			BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
 			
 			String line = player + " won " + score +" points.";
 			
