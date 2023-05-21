@@ -48,7 +48,10 @@ public class Restaurant implements Comparable<Restaurant>{
 
 	@Override
 	public int compareTo(Restaurant o) {
-		// TODO Auto-generated method stub
-		return this.score - o.getScore();
+		int scoreCompare = this.score - o.getScore();
+		if(scoreCompare == 0) {
+			scoreCompare = this.name.compareTo(o.getName());
+		}
+		return scoreCompare;
 	}
 }

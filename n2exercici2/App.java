@@ -8,7 +8,7 @@ public class App {
 		// TODO Auto-generated method stub
 
 		//Instantiate HashSet Collection
-		Set<Restaurant> restaurants = new HashSet<Restaurant>();
+		Set<Restaurant> restaurants = new HashSet<Restaurant>();	
 		
 		//Samples
 		Restaurant konigGirona = new Restaurant("Konig", 5);
