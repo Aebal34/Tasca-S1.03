@@ -18,7 +18,6 @@ public class App {
 		
 		//We instantiate an iterator for each list
 		ListIterator<Integer> it = list.listIterator(list.size()); //Starts at last position
-		ListIterator<Integer> invertedIt = list.listIterator(); 
 		
 		while(it.hasPrevious()) {
 			
