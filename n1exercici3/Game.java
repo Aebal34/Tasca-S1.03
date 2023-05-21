@@ -8,7 +8,6 @@ public class Game {
 	private byte score;
 	private byte tries;
 	private String player;
-	private String country;
 	private Map<String,String> countriesAndCapitals;
 	Set<String> selectedCountries;
 	
@@ -18,9 +17,7 @@ public class Game {
 		tries = 0;
 		this.player = player;
 		countriesAndCapitals = new HashMap<String, String>(MapFileManager.readFile(System.getProperty("user.dir") + "\\src\\n1exercici3\\countries.txt"));
-		country = randomCountry();
-		selectedCountries = new HashSet<>();
-		selectedCountries.add("");
+		selectedCountries = new HashSet<String>();
 	}
 	
 	//METHODS
@@ -40,7 +37,7 @@ public class Game {
 	
 	public void round() {
 		
-			country = randomCountry();
+			String country = randomCountry();
 			String answer = Input.readString("Write the capital city of the country "+country+": (If it has spaces, write them as _)");
 			if(answer.equals(countriesAndCapitals.getOrDefault(country, "Incorrect!"))) {
 				score++;

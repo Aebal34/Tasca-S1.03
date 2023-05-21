@@ -15,6 +15,7 @@ public class MapFileManager {
 		try {
 			BufferedWriter writer = new BufferedWriter(new FileWriter(path, true));
 			
+			writer.newLine();
 			String line = player + " won " + score +" points.";
 			
 			writer.write(line);
