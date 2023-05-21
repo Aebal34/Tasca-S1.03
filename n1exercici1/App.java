@@ -60,6 +60,8 @@ public class App {
 		//Space for clarity in console
 		System.out.println();
 		
+		monthsNoRepeat.add(new Month("December"));
+		
 		//Print with for, elements might be in different order
 		for(Month month : monthsNoRepeat) {
 			System.out.println(month);
@@ -73,7 +75,6 @@ public class App {
 		
 		//We avoid Exception when collection is iterated
 		while(it.hasNext()) {
-			
 			Month month = it.next();
 			System.out.println(month);
 		}
